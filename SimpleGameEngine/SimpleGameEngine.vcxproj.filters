@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Unused">
+      <UniqueIdentifier>{a9156467-1682-4e53-8bb1-8df7dceeb706}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Log.cpp">
@@ -120,33 +123,6 @@
     <ClCompile Include="CameraComponent.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="FPSCameraComponent.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="FPSActor.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="FollowCameraComponent.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="FollowActor.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="OrbitCameraComponent.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="OrbitActor.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Spline.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="SplineCameraComponent.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="SplineActor.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="LineSegment.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
@@ -186,19 +162,55 @@
     <ClCompile Include="SoundEvent.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Warship.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="FollowActor.cpp">
+      <Filter>Unused</Filter>
+    </ClCompile>
+    <ClCompile Include="FollowCameraComponent.cpp">
+      <Filter>Unused</Filter>
+    </ClCompile>
+    <ClCompile Include="FPSActor.cpp">
+      <Filter>Unused</Filter>
+    </ClCompile>
+    <ClCompile Include="FPSCameraComponent.cpp">
+      <Filter>Unused</Filter>
+    </ClCompile>
+    <ClCompile Include="OrbitActor.cpp">
+      <Filter>Unused</Filter>
+    </ClCompile>
+    <ClCompile Include="OrbitCameraComponent.cpp">
+      <Filter>Unused</Filter>
     </ClCompile>
     <ClCompile Include="ScrollScreenActor.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Unused</Filter>
     </ClCompile>
     <ClCompile Include="ScrollScreenCameraComponent.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Unused</Filter>
+    </ClCompile>
+    <ClCompile Include="Warship.cpp">
+      <Filter>Unused</Filter>
     </ClCompile>
     <ClCompile Include="TorpedoActor.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Unused</Filter>
     </ClCompile>
     <ClCompile Include="TorpedoMoveComponent.cpp">
+      <Filter>Unused</Filter>
+    </ClCompile>
+    <ClCompile Include="SplineActor.cpp">
+      <Filter>Unused</Filter>
+    </ClCompile>
+    <ClCompile Include="SplineCameraComponent.cpp">
+      <Filter>Unused</Filter>
+    </ClCompile>
+    <ClCompile Include="Spline.cpp">
+      <Filter>Unused</Filter>
+    </ClCompile>
+    <ClCompile Include="PinActor.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="BowlingActor.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="BowlingCameraComponent.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -314,33 +326,6 @@
     <ClInclude Include="CameraComponent.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="FPSCameraComponent.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="FPSActor.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="FollowCameraComponent.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="FollowActor.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="OrbitCameraComponent.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="OrbitActor.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Spline.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="SplineCameraComponent.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="SplineActor.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="LineSegment.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
@@ -380,19 +365,55 @@
     <ClInclude Include="SoundEvent.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Warship.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="FollowActor.h">
+      <Filter>Unused</Filter>
+    </ClInclude>
+    <ClInclude Include="FollowCameraComponent.h">
+      <Filter>Unused</Filter>
+    </ClInclude>
+    <ClInclude Include="FPSActor.h">
+      <Filter>Unused</Filter>
+    </ClInclude>
+    <ClInclude Include="FPSCameraComponent.h">
+      <Filter>Unused</Filter>
     </ClInclude>
     <ClInclude Include="ScrollScreenActor.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Unused</Filter>
     </ClInclude>
     <ClInclude Include="ScrollScreenCameraComponent.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Unused</Filter>
+    </ClInclude>
+    <ClInclude Include="SplineActor.h">
+      <Filter>Unused</Filter>
+    </ClInclude>
+    <ClInclude Include="SplineCameraComponent.h">
+      <Filter>Unused</Filter>
     </ClInclude>
     <ClInclude Include="TorpedoActor.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Unused</Filter>
     </ClInclude>
     <ClInclude Include="TorpedoMoveComponent.h">
+      <Filter>Unused</Filter>
+    </ClInclude>
+    <ClInclude Include="Warship.h">
+      <Filter>Unused</Filter>
+    </ClInclude>
+    <ClInclude Include="OrbitActor.h">
+      <Filter>Unused</Filter>
+    </ClInclude>
+    <ClInclude Include="OrbitCameraComponent.h">
+      <Filter>Unused</Filter>
+    </ClInclude>
+    <ClInclude Include="Spline.h">
+      <Filter>Unused</Filter>
+    </ClInclude>
+    <ClInclude Include="PinActor.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="BowlingActor.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="BowlingCameraComponent.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>

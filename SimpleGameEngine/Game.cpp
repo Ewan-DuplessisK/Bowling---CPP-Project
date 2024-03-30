@@ -7,15 +7,12 @@
 #include "SphereActor.h"
 #include "PlaneActor.h"
 #include "AudioComponent.h"
-#include "FPSActor.h"
-#include "FollowActor.h"
-#include "OrbitActor.h"
-#include "SplineActor.h"
 #include "TargetActor.h"
 #include <algorithm>
 #include "Warship.h"
-#include "ScrollScreenActor.h"
-#include "Random.h"
+#include "PinActor.h"
+#include "BowlingActor.h"
+#include "FPSActor.h"
 
 bool Game::initialize()
 {
@@ -23,7 +20,6 @@ bool Game::initialize()
 	bool isRendererInit = renderer.initialize(window);
 	bool isAudioInit = audioSystem.initialize();
 	bool isInputInit = inputSystem.initialize();
-	Random::init();
 
 	return isWindowInit && isRendererInit && isAudioInit && isInputInit; // Return bool && bool && bool ...to detect error
 }
@@ -38,88 +34,35 @@ void Game::load()
 
 	Assets::loadTexture(renderer, "Res\\Textures\\Default.png", "Default");
 	Assets::loadTexture(renderer, "Res\\Textures\\Cube.png", "Cube");
-	Assets::loadTexture(renderer, "Res\\Textures\\HealthBar.png", "HealthBar");
 	Assets::loadTexture(renderer, "Res\\Textures\\Plane.png", "Plane");
-	Assets::loadTexture(renderer, "Res\\Textures\\Radar.png", "Radar");
 	Assets::loadTexture(renderer, "Res\\Textures\\Sphere.png", "Sphere");
-	Assets::loadTexture(renderer, "Res\\Textures\\Crosshair.png", "Crosshair");
-	Assets::loadTexture(renderer, "Res\\Textures\\RacingCar.png", "RacingCar");
-	Assets::loadTexture(renderer, "Res\\Textures\\Rifle.png", "Rifle");
 	Assets::loadTexture(renderer, "Res\\Textures\\Target.png", "Target");
 
 	Assets::loadMesh("Res\\Meshes\\Cube.gpmesh", "Mesh_Cube");
 	Assets::loadMesh("Res\\Meshes\\Plane.gpmesh", "Mesh_Plane");
 	Assets::loadMesh("Res\\Meshes\\Sphere.gpmesh", "Mesh_Sphere");
-	Assets::loadMesh("Res\\Meshes\\Rifle.gpmesh", "Mesh_Rifle");
-	Assets::loadMesh("Res\\Meshes\\RacingCar.gpmesh", "Mesh_RacingCar");
 	Assets::loadMesh("Res\\Meshes\\Target.gpmesh", "Mesh_Target");
+	Assets::loadMesh("Res\\Meshes\\Rifle.gpmesh", "Mesh_Rifle");
 
-	//fps = new FPSActor();
-	//follow = new FollowActor();
-	scroll = new ScrollScreenActor();
-	vector<Warship*> warships = {};
+	bowling = new BowlingActor;
+	//fps = new FPSActor;
+	bowling->setPosition(Vector3(0.0f,0.0f,30.0f));
+	vector<PinActor*> pins = {};
 	for (int i = 0; i < 4; i++) {
-		for (int j = 0; j < 3; j++) {
-			Warship* a = new Warship();
-			a->setPosition(Vector3(1000.0f*i + Random::getFloatRange(-100.0f, 100.0f), 600.0f * j - 600.0f+Random::getFloatRange(-100.0f,100.0f), -100.0f));
-			a->setScale(100.0f);
-			//Quaternion q(Vector3::unitY, -Maths::piOver2);
-			//q = Quaternion::concatenate(q, Quaternion(Vector3::unitZ, Maths::pi + Maths::pi / 4.0f));
-			//a->setRotation(q);
-			warships.push_back(a);
+		for (int j = 0; j <= i; j++) {
+			PinActor* p = new PinActor();
+			p->setScale(Vector3(10.0f, 10.0f, 30.0f));
+			p->setPosition(Vector3(900.0f + 40.0f * i, (-20.0f * i) + (40.0f * j), 15.0f));
+			pins.push_back(p);
 		}
 	}
-
-	/*CubeActor* a = new CubeActor();
-	a->setPosition(Vector3(200.0f, 105.0f, 0.0f));
-	a->setScale(100.0f);
-	Quaternion q(Vector3::unitY, -Maths::piOver2);
-	q = Quaternion::concatenate(q, Quaternion(Vector3::unitZ, Maths::pi + Maths::pi / 4.0f));
-	a->setRotation(q);
-
-	SphereActor* b = new SphereActor();
-	b->setPosition(Vector3(200.0f, -75.0f, 0.0f));
-	b->setScale(3.0f);*/
 
 	// Floor and walls
 
 	// Setup floor
-	const float start = -1250.0f;
-	const float size = 250.0f;
-	for (int i = 0; i < 20; i++)
-	{
-		for (int j = 0; j < 10; j++)
-		{
-			PlaneActor* p = new PlaneActor();
-			p->setPosition(Vector3(start + i * size, start + j * size, -100.0f));
-		}
-	}
-
-	// Left/right walls
-	/*q = Quaternion(Vector3::unitX, Maths::piOver2);
-	for (int i = 0; i < 10; i++)
-	{
-		PlaneActor* p = new PlaneActor();
-		p->setPosition(Vector3(start + i * size, start - size, 0.0f));
-		p->setRotation(q);
-
-		p = new PlaneActor();
-		p->setPosition(Vector3(start + i * size, -start + size, 0.0f));
-		p->setRotation(q);
-	}
-
-	q = Quaternion::concatenate(q, Quaternion(Vector3::unitZ, Maths::piOver2));
-	// Forward/back walls
-	for (int i = 0; i < 10; i++)
-	{
-		PlaneActor* p = new PlaneActor();
-		p->setPosition(Vector3(start - size, start + i * size, 0.0f));
-		p->setRotation(q);
-
-		p = new PlaneActor();
-		p->setPosition(Vector3(-start + size, start + i * size, 0.0f));
-		p->setRotation(q);
-	}*/
+	PlaneActor* lane = new PlaneActor();
+	lane->setPosition(Vector3(900.0f, 0.0f, 0.0f));
+	lane->setScale(Vector3(20.0f, 10.0f, 1.0f));
 
 	// Setup lights
 	renderer.setAmbientLight(Vector3(0.2f, 0.2f, 0.2f));
@@ -128,29 +71,6 @@ void Game::load()
 	dir.diffuseColor = Vector3(0.78f, 0.88f, 1.0f);
 	dir.specColor = Vector3(0.8f, 0.8f, 0.8f);
 
-	// Create spheres with audio components playing different sounds
-	SphereActor* soundSphere = new SphereActor();
-	soundSphere->setPosition(Vector3(500.0f, -75.0f, 0.0f));
-	soundSphere->setScale(1.0f);
-	AudioComponent* ac = new AudioComponent(soundSphere);
-	ac->playEvent("event:/FireLoop");
-
-	// Corsshair
-	/*Actor* crosshairActor = new Actor();
-	crosshairActor->setScale(2.0f);
-	crosshair = new SpriteComponent(crosshairActor, Assets::getTexture("Crosshair"));*/
-
-	// Start music
-	musicEvent = audioSystem.playEvent("event:/Music");
-
-	/*TargetActor* t = new TargetActor();
-	t->setPosition(Vector3(1450.0f, 0.0f, 100.0f));
-	t = new TargetActor();
-	t->setPosition(Vector3(1450.0f, 0.0f, 400.0f));
-	t = new TargetActor();
-	t->setPosition(Vector3(1450.0f, -500.0f, 200.0f));
-	t = new TargetActor();
-	t->setPosition(Vector3(1450.0f, 500.0f, 200.0f));*/
 }
 
 void Game::processInput()

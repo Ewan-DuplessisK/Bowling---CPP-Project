@@ -8,6 +8,7 @@ public:
 	void updateActor(float dt) override;
 	void setPlayer(Actor* player);
 	void hitTarget();
+	void setSpeed(float speedP);
 
 
 private:

@@ -24,6 +24,7 @@
     <ProjectGuid>{0e54a667-c135-457b-b10c-6409943d5c8f}</ProjectGuid>
     <RootNamespace>SimpleGameEngine</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Bowling</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -141,6 +142,8 @@
     <ClCompile Include="BackgroundSpriteComponent.cpp" />
     <ClCompile Include="BallActor.cpp" />
     <ClCompile Include="BallMoveComponent.cpp" />
+    <ClCompile Include="BowlingActor.cpp" />
+    <ClCompile Include="BowlingCameraComponent.cpp" />
     <ClCompile Include="BoxComponent.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CameraComponent.cpp" />
@@ -168,6 +171,7 @@
     <ClCompile Include="OrbitActor.cpp" />
     <ClCompile Include="OrbitCameraComponent.cpp" />
     <ClCompile Include="PhysicsSystem.cpp" />
+    <ClCompile Include="PinActor.cpp" />
     <ClCompile Include="Plane.cpp" />
     <ClCompile Include="PlaneActor.cpp" />
     <ClCompile Include="Quaternion.cpp" />
@@ -205,6 +209,8 @@
     <ClInclude Include="BackgroundSpriteComponent.h" />
     <ClInclude Include="BallActor.h" />
     <ClInclude Include="BallMoveComponent.h" />
+    <ClInclude Include="BowlingActor.h" />
+    <ClInclude Include="BowlingCameraComponent.h" />
     <ClInclude Include="BoxComponent.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraComponent.h" />
@@ -234,6 +240,7 @@
     <ClInclude Include="OrbitActor.h" />
     <ClInclude Include="OrbitCameraComponent.h" />
     <ClInclude Include="PhysicsSystem.h" />
+    <ClInclude Include="PinActor.h" />
     <ClInclude Include="Plane.h" />
     <ClInclude Include="PlaneActor.h" />
     <ClInclude Include="Quaternion.h" />

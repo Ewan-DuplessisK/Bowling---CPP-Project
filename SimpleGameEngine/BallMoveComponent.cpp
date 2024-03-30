@@ -5,7 +5,7 @@
 #include "Collisions.h"
 #include "PhysicsSystem.h"
 #include "BallActor.h"
-#include "TargetActor.h"
+#include "PinActor.h"
 #include "Game.h"
 
 BallMoveComponent::BallMoveComponent(Actor* ownerP) : MoveComponent(ownerP), player(nullptr)
@@ -22,6 +22,15 @@ void BallMoveComponent::update(float dt)
 	// Construct segment in direction of travel
 	const float segmentLength = 30.0f;
 	Vector3 start = owner.getPosition();
+
+	if (abs(start.y) > 85.0f) {
+		owner.rotateToNewForward(Vector3::unitX);
+		setForwardSpeed(500.0f);
+	}
+	else {
+		if (getForwardSpeed() > 50)setForwardSpeed(getForwardSpeed() * 0.99f);
+	}
+	
 	Vector3 dir = owner.getForward();
 	Vector3 end = start + dir * segmentLength;
 
@@ -37,10 +46,11 @@ void BallMoveComponent::update(float dt)
 		dir = Vector3::reflect(dir, info.normal);
 		owner.rotateToNewForward(dir);
 		// Did we hit a target?
-		TargetActor* target = dynamic_cast<TargetActor*>(info.actor);
+		PinActor* target = dynamic_cast<PinActor*>(info.actor);
 		if (target)
 		{
-			static_cast<BallActor*>(&owner)->hitTarget();
+			target->isHit(owner.getPosition());
+			//static_cast<BallActor*>(&owner)->hitTarget();
 		}
 	}
 
