@@ -4,10 +4,10 @@
 #include "AudioComponent.h"
 #include "BallMoveComponent.h"
 
-BallActor::BallActor() : Actor(), lifetimeSpan(10.0f), audio(nullptr), ballMove(nullptr)
+BallActor::BallActor() : Actor(), lifetimeSpan(10.0f), audio(nullptr), ballMove(nullptr), mesh(nullptr)
 {
-	MeshComponent* mc = new MeshComponent(this);
-	mc->setMesh(Assets::getMesh("Mesh_Sphere"));
+	mesh = new MeshComponent(this);
+	mesh->setMesh(Assets::getMesh("Mesh_Sphere"));
 	audio = new AudioComponent(this);
 	ballMove = new BallMoveComponent(this);
 }

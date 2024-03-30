@@ -71,6 +71,7 @@ void BowlingActor::shoot()
 	ball->setSpeed(currentPower);
 	// Rotate the ball to face new direction
 	ball->setRotation(Quaternion(Vector3(0.0f, 0.0f, 1.0f), currentAngle));
+	getGame().addActor(ball);
 	// Play shooting sound
 	audioComponent->playEvent("event:/Shot");
 }

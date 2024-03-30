@@ -11,6 +11,7 @@ public:
 	const AABB& getWorldBox() const { return worldBox; }
 	void setObjectBox(const AABB& objectBoxP);
 	void setShouldRotate(bool shouldRotateP);
+	AABB& getObjectBox() { return objectBox; }
 
 	void onUpdateWorldTransform() override;
 

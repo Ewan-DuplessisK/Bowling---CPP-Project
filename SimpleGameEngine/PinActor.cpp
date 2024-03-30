@@ -6,12 +6,13 @@
 #include "BallMoveComponent.h"
 #include "AudioComponent.h"
 
-PinActor::PinActor() :boxComponent(nullptr),moveComponent(nullptr),lifetimeSpan(2.0f),audioComponent(nullptr) {
+PinActor::PinActor() :boxComponent(nullptr),moveComponent(nullptr),lifetimeSpan(10.0f),audioComponent(nullptr) {
 	BoxComponent* bc = new BoxComponent(this);
 	bc->setObjectBox(Assets::getMesh("Mesh_Cube").getBox());
 	boxComponent = bc;
 	audioComponent = new AudioComponent(this);
-	//moveComponent = new MoveComponent(this);
+	moveComponent = new BallMoveComponent(this);
+	moveComponent->setPlayer(this);
 }
 
 void PinActor::updateActor(float dt) {
@@ -76,7 +77,6 @@ void PinActor::fixCollisions()
 }
 
 void PinActor::isHit(Vector3 origin) {
-	moveComponent = new BallMoveComponent(this);
 	origin.z = getPosition().z;
 	Vector3 newForward = getPosition() - origin;
 	newForward.normalize();

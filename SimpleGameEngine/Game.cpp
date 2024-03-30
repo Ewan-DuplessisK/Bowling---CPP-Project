@@ -47,7 +47,6 @@ void Game::load()
 	bowling = new BowlingActor;
 	//fps = new FPSActor;
 	bowling->setPosition(Vector3(0.0f,0.0f,30.0f));
-	vector<PinActor*> pins = {};
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j <= i; j++) {
 			PinActor* p = new PinActor();

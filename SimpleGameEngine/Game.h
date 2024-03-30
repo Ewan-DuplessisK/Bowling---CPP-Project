@@ -9,6 +9,7 @@
 #include "InputSystem.h"
 #include "PhysicsSystem.h"
 #include "PlaneActor.h"
+#include"PinActor.h"
 
 using std::vector;
 
@@ -46,6 +47,7 @@ public:
 	void addPlane(class PlaneActor* plane);
 	void removePlane(class PlaneActor* plane);
 	vector<PlaneActor*>& getPlanes() { return planes; }
+	vector<PinActor*>& getPins() { return pins; }
 
 
 private:
@@ -69,5 +71,6 @@ private:
 	class BowlingActor* bowling;
 	vector<PlaneActor*> planes;
 	class FPSActor* fps;
+	vector<PinActor*> pins = {};
 };
 
